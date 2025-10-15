@@ -2,7 +2,8 @@ package entidades;
 
 public class Sesion {
 	private String nombrePersona; 
-	private Perfiles perfil;      
+	private Perfiles perfil;
+	
 	//Se inicia a null ya que queremos ir de primeras al menu INVITADO
 	public Sesion() {
 	    this.nombrePersona = null;
