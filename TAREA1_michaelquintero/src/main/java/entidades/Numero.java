@@ -10,7 +10,8 @@ public class Numero {
 	    private double duracion;
 	    private List<Artista> artistas;
 	    
-		public Numero(long id, int orden, String nombre, double duracion, List<Artista> artistas) {
+	    //Constructor con la lista vacia
+		public Numero(long id, int orden, String nombre, double duracion) {
 			super();
 			this.id = id;
 			this.orden = orden;
@@ -19,6 +20,14 @@ public class Numero {
 			this.artistas = new ArrayList<>();
 		}
 		
+		//Constructor con la lista ya creada con anterioridad
+		public Numero(long id, int orden, String nombre, double duracion, List<Artista> artistas) {
+	        this.id = id;
+	        this.orden = orden;
+	        this.nombre = nombre;
+	        this.duracion = duracion;
+	        this.artistas = artistas;
+	    }
 		public long getId() {
 			return id;
 		}
@@ -56,6 +65,12 @@ public class Numero {
 					+ "\nArtistas=" + artistas;
 		}
 		
+		//Metodo para añadir artistas despues de haber ya inicializado el constructor
+		public void addArtista(Artista artista) {
+		      if (!artistas.contains(artista)) {
+		    	  artistas.add(artista);
+		      }
+		}
 		
 		
 	    

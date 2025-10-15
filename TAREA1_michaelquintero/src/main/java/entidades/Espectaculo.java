@@ -12,8 +12,9 @@ public class Espectaculo {
     private List<Coordinacion> coordinadores; 
     private List<Numero> numeros;              
 
-    public Espectaculo(long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin,
-                       List<Coordinacion> coordinadores, List<Numero> numeros) {
+    
+    //Constructor sin lista inicializada
+    public Espectaculo(long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin) {
         this.id = id;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
@@ -21,6 +22,18 @@ public class Espectaculo {
         this.coordinadores = new ArrayList<>(); 
         this.numeros = new ArrayList<>();  
         }
+    
+    //Constructor con listas ya creadas con anterioridad
+    public Espectaculo(long id, String nombre, LocalDate fechaInicio, LocalDate fechaFin,
+            List<Coordinacion> coordinadores, List<Numero> numeros) {
+    	this.id = id;
+    	this.nombre = nombre;
+    	this.fechaInicio = fechaInicio;
+    	this.fechaFin = fechaFin;
+    	this.coordinadores = coordinadores;
+    	this.numeros = numeros;
+    }
+
 
 	public long getId() {
 		return id;
@@ -72,9 +85,19 @@ public class Espectaculo {
 
 	@Override
 	public String toString() {
-		return "Espectaculo:\nId: " + id + "\nNombre: " + nombre + "/nFechaInicio=" + fechaInicio + "/nFechaFin: "
+		return "Espectaculo:\nId: " + id + "\nNombre: " + nombre + "\nFechaInicio=" + fechaInicio + "\nFechaFin: "
 				+ fechaFin;
 	}
     
+	
+	//Son metodos para añadir Coordinadores o numeros a la lista de los objetos una vez ya estan creados
+	public void addCoordinador(Coordinacion c) {
+	    if (!coordinadores.contains(c)) coordinadores.add(c);
+	}
+
+	public void addNumero(Numero n) {
+	    if (!numeros.contains(n)) numeros.add(n);
+	}
+
     
 }

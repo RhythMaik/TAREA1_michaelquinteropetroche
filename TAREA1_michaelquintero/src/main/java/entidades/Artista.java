@@ -8,21 +8,22 @@ public class Artista extends Persona{
 	private String apodo;
 	private List<Especialidad> especialidades;
 	
-	public Artista(long id, String nombre, String email, String nacionalidad, long idArtista, String apodo,
-			List<Especialidad> especialidades) {
-		super(id, nombre, email, nacionalidad);
-		this.idArtista = idArtista;
-		this.apodo = apodo;
-		this.especialidades = new ArrayList<>();
-	}
+	//Constructor con lista vacía
+    public Artista(long id, String nombre, String email, String nacionalidad, long idArtista, String apodo) {
+        super(id, nombre, email, nacionalidad);
+        this.idArtista = idArtista;
+        this.apodo = apodo;
+        this.especialidades = new ArrayList<>(); 
+    }
 
-	public Artista(long id, String nombre, String email, String nacionalidad, long idArtista,
-		List<Especialidad> especialidades) {
-		super(id, nombre, email, nacionalidad);
-		this.idArtista = idArtista;
-		this.apodo = null;
-		this.especialidades = especialidades;
-	}
+    //Constructor con lista ya creada
+    public Artista(long id, String nombre, String email, String nacionalidad, long idArtista,
+                   String apodo, List<Especialidad> especialidades) {
+        super(id, nombre, email, nacionalidad);
+        this.idArtista = idArtista;
+        this.apodo = apodo;
+        this.especialidades = new ArrayList<>();
+    }
 
 	public long getIdArtista() {
 		return idArtista;
@@ -52,6 +53,14 @@ public class Artista extends Persona{
 	public String toString() {
 		return super.toString()+"\nArtista\nIdArtista: " + idArtista + "\nApodo: " + apodo + "\nEspecialidades: " + especialidades;
 	}
+	
+	//Añadir especialidad a posteriori
+    public void addEspecialidad(Especialidad especialidad) {
+        if (!especialidades.contains(especialidad)) {
+            especialidades.add(especialidad);
+        }
+    }
+
 	
 	
 	
